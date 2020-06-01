@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800;900&display=swap');
+
+$color: rgb(108, 55, 241);
+
+@mixin white-bg {
+    color: $color;
+    background-color: white;
+    border: 1px solid $color;
+}
+@mixin color-bg {
+    color: white;
+    background-color: $color;
+}
+
+body {
+    background-color: $color;
+    font-size: calc(0.5vw + 8px);
+    font-family: 'Raleway', sans-serif;
+    transition: .3s ease-in-out;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.filter {
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 15px;
+    background-color: whitesmoke;
+
+    .inline-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.btn {
+    &:hover {
+        opacity: 0.9;
+        cursor: pointer;
+        transition: .2s ease-in;
+    }
+    @include color-bg;
+    border-radius: 3px;
+    padding: 0.65em 0.85em;
+    border: none;
+}
+.btn-outline {
+    display: inline-block;
+    padding: 0.75em 1.2em;
+    margin: 0 5px;
+    &:hover {
+        @include color-bg;
+    }
+    @include white-bg;
+}
+
+#quote-box {
+    width: 35vw;
+    border-radius: 3px;
+    padding: 3.5em  3em 4.5em 3em;
+    background-color: whitesmoke;
+
+    position: relative;
+	margin: 50px auto;
+}
+
+#quote-text {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    color: $color;
+    margin-top: 50px;
+    #text {
+        &:before {
+            content: '\f10d';
+            font-size: 1.3em;
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            top: 1.5em;
+            left: 1em;
+        }
+        font-weight: 400;
+        font-size: 1.75em;
+        line-height: 1.5em;
+    }
+    p {
+        font-size: 1.1em;
+    }
+}
+
+
+#quote-buttons {
+    margin-top: 30px;
+    position: relative;
+    & * {
+        font-size: 1em;
+        display: inline-block;
+    }
+    #tweet-quote {
+        float: left;
+    }
+    #new-quote {
+        float: right;
+        padding: 0.75em 0.85em;
+    }
+}
+
+#credit {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+
+    color: rgb(32, 32, 32);
+    a {
+        background-color: rgb(32, 32, 32);
+        color: white;
+        padding: 3px;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="./style.css" type"text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+</head>
+<body>
+    <div class="filter">
+        <p>Filter by author name: </p>
+        <div class="inline-btn">
+            <a data-tag="licoln" class="btn btn-outline">Abraham Lincoln</a>
+            <a data-tag="aristotle" class="btn btn-outline">Aristotle</a>
+            <a data-tag="bhuddha" class="btn btn-outline">Buddha</a>
+            <a data-tag="socrates" class="btn btn-outline">Socrates</a>
+            <a data-tag="random" class="btn btn-outline">Random</a>
+        </div>
+    </div>
+
+    <div id="quote-box">
+        <div id="quote-text">
+            <span id="text">In order to succeed, your desire for success should be greater than your fear of failure.</span>
+            <p>- <span id="author">Some Author</span></p>
+        </div>
+        <div id="quote-buttons">
+            <a class="btn" id="tweet-quote" href="https://twitter.com/intent/tweet?text=Quote&hashtags=quotes" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="btn" id="new-quote">New Quote</a>
+        </div>
+    </div>
+
+
+    <div id="credit">
+        <p>by <b><a href="https://www.github.com/betich" target="_blank">betich</a></b></p>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
