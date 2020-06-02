@@ -1,6 +1,4 @@
-var clickedElem = 'random';
-var query = "Steve Jobs";
-var data;
+var clickedElem, query, data;
 
 const $quote = $("#text");
 const $author = $("#author");

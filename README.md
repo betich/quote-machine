@@ -2,7 +2,7 @@
 
 ![Screenshot of my site](https://lh3.googleusercontent.com/pw/ACtC-3fejt9C6OneU55OsnlHMwC6TO_qlx2Bd7HvR5S6UHFrXaf3HszAB7lE1AEw8nFCxXPV_XFltEO2PQTcFX7wZA4NXC2SoKCYHVp_4TMSu-jm6f33T-Ae2HZxLtsydIBeQliYc1ZUNqRFG4pl1-2vya4x=w1908-h927-no "Screentshot")
 
-Codepen Link: https://codepen.io/Betich/pen/JjGjjpm
+Codepen Link: https://codepen.io/Betich/full/LYGYYMv
 
 I'm only publishing this repo because I need to link the JSON file to my project.
 
