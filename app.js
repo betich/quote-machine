@@ -15,12 +15,8 @@ $('#new-quote').click(async function() {
 		const settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "https://quotes15.p.rapidapi.com/quotes/random/?language_code=en",
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "quotes15.p.rapidapi.com",
-				"x-rapidapi-key": "091647eb6fmshf933f2c2619c98cp1117dajsn0045bc8af381"
-			}
+			"url": "https://raw.githubusercontent.com/betich/quote-machine/master/quotes.json",
+			"method": "GET"
 		}
 		$.ajax(settings).done(function (response) {
 			console.log(response);
