@@ -1,5 +1,6 @@
 var clickedElem = 'random';
 var query = "Steve Jobs";
+var data;
 
 const $quote = $("#text");
 const $author = $("#author");
@@ -15,10 +16,10 @@ $('#new-quote').click(async function() {
   	let hue = Math.floor(Math.random() * 360);
   	document.documentElement.style.setProperty('--color', `hsl(${hue}, ${SATLIGHT})`);
 
-	getQuoteAndDisplay();
+	filterQuoteAndDisplay();
 });
 
-async function getQuoteAndDisplay() {
+async function request() {
 	let rawdata = await $.ajax({
 		"async": true,
 		"crossDomain": true,
@@ -31,7 +32,11 @@ async function getQuoteAndDisplay() {
 	.fail(function() {
 		console.log("Error while fetching data");
 	});
-	
+
+	return JSON.parse(rawdata)
+}
+
+function filterQuoteAndDisplay() {
 	let filterAuthorAndRandom = (data, author) => {
 		let modifiedData;
 		try {
@@ -53,7 +58,7 @@ async function getQuoteAndDisplay() {
 		$tweet.attr('href', "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=\"" + quote.quote + "\" - " + quote.author);
 	}
 
-	let quote = filterAuthorAndRandom(JSON.parse(rawdata), query);
+	let quote = filterAuthorAndRandom(data, query);
 	displayQuotes(quote);
 	return quote
 }
@@ -66,7 +71,8 @@ function assignButton(item) {
 	query = $(item).attr('data-tag');
 }
 
-$(document).ready(function() {
+$(document).ready(async function() {
+	data = await request();
 	assignButton($("#random"));
-	getQuoteAndDisplay();
+	filterQuoteAndDisplay();
 });
