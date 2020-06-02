@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;900&display=swap');
 
-$color: rgb(108, 55, 241);
+:root {
+    --color: rgb(108, 55, 241);
+}
 
 @mixin white-bg {
-    color: $color;
+    color: var(--color);
     background-color: white;
-    border: 1px solid $color;
+    border: 1px solid var(--color);
 }
 @mixin color-bg {
     color: white;
-    background-color: $color;
+    background-color: var(--color);
 }
 
 body {
-    background-color: $color;
+    @include color-bg;
     font-size: calc(0.5vw + 8px);
     font-family: 'Raleway', sans-serif;
-    transition: .3s ease-in-out;
+    transition: .7s ease-in-out;
     height: 100vh;
     margin: 0;
     text-align: center;
@@ -27,6 +29,7 @@ body {
     margin-bottom: 1em;
     padding: 15px;
     background-color: whitesmoke;
+    color: rgb(39, 39, 39);
 
     .inline-btn {
         display: flex;
@@ -50,7 +53,7 @@ body {
     display: inline-block;
     padding: 0.75em 1.2em;
     margin: 0 5px;
-    &:hover {
+    &:hover, & .selected {
         @include color-bg;
     }
     @include white-bg;
@@ -59,11 +62,12 @@ body {
 #quote-box {
     width: 35vw;
     border-radius: 3px;
-    padding: 3.5em  3em 4.5em 3em;
+    padding: 3.75em 3em;
     background-color: whitesmoke;
 
     position: relative;
-	margin: 50px auto;
+    margin: 50px auto;
+    transition: .7s ease-in-out;
 }
 
 #quote-text {
@@ -71,7 +75,7 @@ body {
     flex-direction: column;
     align-items: end;
     justify-content: center;
-    color: $color;
+    color: var(--color);
     margin-top: 50px;
     #text {
         &:before {
@@ -87,14 +91,14 @@ body {
         font-size: 1.75em;
         line-height: 1.5em;
     }
-    p {
-        font-size: 1.1em;
+    #subheader {
+        font-size: 1.25em;
     }
 }
 
 
 #quote-buttons {
-    margin-top: 30px;
+    margin-top: 5px;
     position: relative;
     & * {
         font-size: 1em;

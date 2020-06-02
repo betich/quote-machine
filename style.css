@@ -1,10 +1,15 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;900&display=swap");
+:root {
+  --color: rgb(108, 55, 241);
+}
+
 body {
-  background-color: #6c37f1;
+  color: white;
+  background-color: var(--color);
   font-size: calc(0.5vw + 8px);
   font-family: "Raleway", sans-serif;
-  transition: 0.3s ease-in-out;
+  transition: 0.7s ease-in-out;
   height: 100vh;
   margin: 0;
   text-align: center;
@@ -15,6 +20,7 @@ body {
   margin-bottom: 1em;
   padding: 15px;
   background-color: whitesmoke;
+  color: #272727;
 }
 .filter .inline-btn {
   display: flex;
@@ -24,7 +30,7 @@ body {
 
 .btn {
   color: white;
-  background-color: #6c37f1;
+  background-color: var(--color);
   border-radius: 3px;
   padding: 0.65em 0.85em;
   border: none;
@@ -39,22 +45,23 @@ body {
   display: inline-block;
   padding: 0.75em 1.2em;
   margin: 0 5px;
-  color: #6c37f1;
+  color: var(--color);
   background-color: white;
-  border: 1px solid #6c37f1;
+  border: 1px solid var(--color);
 }
-.btn-outline:hover {
+.btn-outline:hover, .btn-outline .selected {
   color: white;
-  background-color: #6c37f1;
+  background-color: var(--color);
 }
 
 #quote-box {
   width: 35vw;
   border-radius: 3px;
-  padding: 3.5em 3em 4.5em 3em;
+  padding: 3.75em 3em;
   background-color: whitesmoke;
   position: relative;
   margin: 50px auto;
+  transition: 0.7s ease-in-out;
 }
 
 #quote-text {
@@ -62,7 +69,7 @@ body {
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  color: #6c37f1;
+  color: var(--color);
   margin-top: 50px;
 }
 #quote-text #text {
@@ -79,12 +86,12 @@ body {
   top: 1.5em;
   left: 1em;
 }
-#quote-text p {
-  font-size: 1.1em;
+#quote-text #subheader {
+  font-size: 1.25em;
 }
 
 #quote-buttons {
-  margin-top: 30px;
+  margin-top: 5px;
   position: relative;
 }
 #quote-buttons * {
