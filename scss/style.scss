@@ -53,7 +53,7 @@ body {
     display: inline-block;
     padding: 0.75em 1.2em;
     margin: 0 5px;
-    &:hover, & .selected {
+    &:hover {
         @include color-bg;
     }
     @include white-bg;

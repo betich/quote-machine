@@ -1,43 +1,72 @@
 var clickedElem = 'random';
+var query = "Steve Jobs";
+
+const $quote = $("#text");
+const $author = $("#author");
+const $tweet = $("#tweet-quote");
 const SATLIGHT = '86.9%, 43%';
 
-var query = "buddha";
 
 $('.btn-outline').click(function() {
 	assignButton($(this));
 });
+
 $('#new-quote').click(async function() {
-	// change quote, color here
   	let hue = Math.floor(Math.random() * 360);
   	document.documentElement.style.setProperty('--color', `hsl(${hue}, ${SATLIGHT})`);
 
-	let data = (() => {
-		const settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://raw.githubusercontent.com/betich/quote-machine/master/quotes.json",
-			"method": "GET"
-		}
-		$.ajax(settings).done(function (response) {
-			console.log(response);
-		});
-	})();
-
-	console.log(await data);
-	let filteredData = filterAuthor(await data, query);
+	getQuoteAndDisplay();
 });
 
-function assignButton(item) {
-	// Styles
-	item.siblings().removeClass('selected').addClass('btn-outline');
-	item.removeClass('btn-outline').addClass('selected');
+async function getQuoteAndDisplay() {
+	let rawdata = await $.ajax({
+		"async": true,
+		"crossDomain": true,
+		"url": "https://raw.githubusercontent.com/betich/quote-machine/master/quotes.json",
+		"method": "GET"
+	})
+	.done(function(response) {
+		return response
+	})
+	.fail(function() {
+		console.log("Error while fetching data");
+	});
+	
+	let filterAuthorAndRandom = (data, author) => {
+		let modifiedData;
+		try {
+			if (author === "Random") {
+				modifiedData = data;
+			} else {
+				modifiedData = data.filter(e => e.author === author);
+			}
+		} catch(e) {
+			console.log("ERROR: " + e.message);
+		}
+		let idx = Math.floor(Math.random() * modifiedData.length);
+		return modifiedData[idx]
+	}
 
-	query = $(item).attr('id');
+	let displayQuotes = (quote) => {
+		$quote.text(quote.quote);
+		$author.text(quote.author);
+		$tweet.attr('href', "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=\"" + quote.quote + "\" - " + quote.author);
+	}
+
+	let quote = filterAuthorAndRandom(JSON.parse(rawdata), query);
+	displayQuotes(quote);
+	return quote
 }
 
-function filterAuthor(arr, author) {
-	return arr;
+function assignButton(item) {
+	item.delay(7000).fadeIn();
+	item.siblings().removeClass('selected').addClass('btn-outline');
+	item.removeClass('btn-outline');
+
+	query = $(item).attr('data-tag');
 }
 
 $(document).ready(function() {
+	assignButton($("#random"));
+	getQuoteAndDisplay();
 });
