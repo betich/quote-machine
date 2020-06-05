@@ -1,6 +1,6 @@
 # Random Quote Generator
 
-![Screenshot of my site](https://lh3.googleusercontent.com/pw/ACtC-3fejt9C6OneU55OsnlHMwC6TO_qlx2Bd7HvR5S6UHFrXaf3HszAB7lE1AEw8nFCxXPV_XFltEO2PQTcFX7wZA4NXC2SoKCYHVp_4TMSu-jm6f33T-Ae2HZxLtsydIBeQliYc1ZUNqRFG4pl1-2vya4x=w1908-h927-no "Screentshot")
+![Screenshot of my site](https://www.dl.dropboxusercontent.com/s/bx5i17a8avtxw9f/quote-machine.png "Screentshot")
 
 Codepen Link: https://codepen.io/Betich/full/LYGYYMv
 
@@ -39,6 +39,6 @@ async function request() {
 
 ---
 
-*This project was made for a FreeCodeCamp Certificate project.*
+*This project is made for a FreeCodeCamp Certificate project.*
 
 *All quotes' lengths are also less than 280 characters, which is the minimum length limit for a tweet*
